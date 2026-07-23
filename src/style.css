@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Rizka Audio — design tokens
+   World: car audio. Graphite panel + amber gauge + teal EQ meter.
+   Numbers in spec sheets read like a multimeter (mono).
+---------------------------------------------------------------------------- */
+@theme {
+  --color-graphite-950: #131316;
+  --color-graphite-900: #1a1a1d;
+  --color-graphite-850: #1f1f23;
+  --color-graphite-800: #232327;
+  --color-graphite-750: #2a2a2f;
+  --color-graphite-700: #2e2e34;
+  --color-graphite-600: #3a3a42;
+  --color-graphite-500: #4a4a53;
+
+  --color-amber: #e8a33d;
+  --color-amber-bright: #f4b44e;
+  --color-amber-dim: #b07e27;
+
+  --color-teal: #3d8b8b;
+  --color-teal-bright: #57a8a8;
+  --color-teal-dim: #2c6666;
+
+  --color-ink: #f2f0ea;
+  --color-muted: #a6a49d;
+  --color-faint: #6f6e68;
+
+  --font-display: "Oswald", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* ----------------------------- base --------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-graphite-900);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* faint engineering grid behind everything, like a spec sheet */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-graphite-950);
+}
+
+/* visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+/* --------------------------- utilities ------------------------------------ */
+/* physical push-button look for the carousel controls */
+@utility btn-physical {
+  background:
+    linear-gradient(180deg, var(--color-graphite-700), var(--color-graphite-850));
+  border: 1px solid var(--color-graphite-500);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.45),
+    0 2px 5px rgba(0, 0, 0, 0.55);
+}
+
+/* amber glow on card hover */
+@utility card-glow {
+  box-shadow:
+    0 0 0 1px rgba(232, 163, 61, 0.35),
+    0 0 22px -6px rgba(232, 163, 61, 0.45);
+}
+
+/* horizontal rule that looks like a panel seam */
+@utility seam {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-graphite-600),
+    transparent
+  );
+}
+
+/* ----------------------------- animations --------------------------------- */
+@keyframes eq-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes snap-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--snap-from, 8px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.anim-snap {
+  animation: snap-in 0.16s steps(3, end);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .eq-bar {
+    animation: none !important;
+  }
+  .anim-snap {
+    animation: none !important;
+  }
+}

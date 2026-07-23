@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.local*
+.claude/
+Katalog barang/
+PRD-*.md
+*.log
+.DS_Store
+Thumbs.db
