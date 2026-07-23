@@ -49,6 +49,22 @@ import AppIcon from '../components/AppIcon.vue'
             <AppIcon name="whatsapp" class="h-5 w-5" /> Chat WhatsApp
           </a>
           <a
+            :href="toko.instagram"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-sm border border-graphite-600 bg-graphite-800 px-5 py-3.5 font-display text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:border-amber/50 hover:text-amber btn-physical"
+          >
+            <AppIcon name="instagram" class="h-4 w-4" /> Instagram
+          </a>
+          <a
+            :href="toko.facebook"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-sm border border-graphite-600 bg-graphite-800 px-5 py-3.5 font-display text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:border-amber/50 hover:text-amber btn-physical"
+          >
+            <AppIcon name="facebook" class="h-4 w-4" /> Facebook
+          </a>
+          <a
             :href="toko.maps"
             target="_blank"
             rel="noopener"

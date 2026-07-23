@@ -9,6 +9,8 @@ export const toko = {
   // TODO: fill in real operating hours
   jam: 'Buka setiap hari · 09.00 – 21.00 WIB',
   maps: 'https://maps.google.com/?q=Padang+Pasir+IV+No.28A+Padang+Barat+Padang+Sumatera+Barat',
+  instagram: 'https://instagram.com/rizkaaudio_padang',
+  facebook: 'https://www.facebook.com/share/17ukY5S5d8/',
 }
 
 // Brands currently carried (shown on the Kontak page).
