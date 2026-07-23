@@ -54,6 +54,24 @@ import AppIcon from './AppIcon.vue'
             </a>
           </li>
         </ul>
+        <div class="mt-4 flex gap-3">
+          <a
+            :href="toko.instagram"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1.5 text-ink underline decoration-graphite-500 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber"
+          >
+            <AppIcon name="instagram" class="h-4 w-4" /> Instagram
+          </a>
+          <a
+            :href="toko.facebook"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1.5 text-ink underline decoration-graphite-500 underline-offset-4 transition-colors hover:text-amber hover:decoration-amber"
+          >
+            <AppIcon name="facebook" class="h-4 w-4" /> Facebook
+          </a>
+        </div>
       </div>
 
       <!-- brands -->
