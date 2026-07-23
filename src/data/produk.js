@@ -1432,7 +1432,14 @@ export const produk = [
   }
 ]
 
-export const kategori = []
+export const kategori = [
+  "Speaker",
+  "Subwoofer",
+  "Tweeter",
+  "Power Amplifier",
+  "Head Unit",
+  "Box Subwoofer"
+]
 
 export function getBySlug(slug) {
   return produk.find((p) => p.slug === slug) || null
